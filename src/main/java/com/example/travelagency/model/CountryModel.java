@@ -1,17 +1,17 @@
 package com.example.travelagency.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
-
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-@EqualsAndHashCode
+//@ToString
+//@EqualsAndHashCode
 @Entity
 public class CountryModel {
 
@@ -26,9 +26,13 @@ public class CountryModel {
     @JoinColumn(name = "continent_id")
     private ContinentModel continentModel;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "countryModel")
-    private List<CityModel> cities = new ArrayList<>();
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "countryModel")
+    @JsonIgnore
+    private Set<CityModel> cityModelList = new HashSet<>();
 
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "countryModel")
+    @JsonIgnore
+    private Set<TravelModel> travelModelList = new HashSet<>();
 
 
 }

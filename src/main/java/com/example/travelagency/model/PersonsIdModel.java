@@ -2,7 +2,6 @@ package com.example.travelagency.model;
 
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.*;
 import java.util.Date;
 
@@ -10,11 +9,11 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-@EqualsAndHashCode
+//@ToString
+//@EqualsAndHashCode
 @Entity
 
-public class PersonsId {
+public class PersonsIdModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

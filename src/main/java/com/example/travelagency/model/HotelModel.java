@@ -1,15 +1,14 @@
 package com.example.travelagency.model;
 
 import lombok.*;
-
 import javax.persistence.*;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-@EqualsAndHashCode
+//@ToString
+//@EqualsAndHashCode
 @Entity
 public class HotelModel {
 
@@ -21,7 +20,7 @@ public class HotelModel {
     private String hotelName;
 
     @Column(name = "stars_number")
-    private byte starsNumber;
+    private Byte starsNumber;
 
     @Column(name = "hotel_description")
     private String hotelDescription;

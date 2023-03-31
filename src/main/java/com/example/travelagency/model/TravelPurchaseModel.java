@@ -1,7 +1,6 @@
 package com.example.travelagency.model;
 
 import lombok.*;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -9,8 +8,8 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-@EqualsAndHashCode
+//@ToString
+//@EqualsAndHashCode
 @Entity
 public class TravelPurchaseModel {
 
@@ -18,13 +17,13 @@ public class TravelPurchaseModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    //sprawdzić pole poniżej - czy musi być przy tej relacji również to samo odniesienie w drugiej klasie
     @OneToOne
-    @Column(name = "travel")
     private TravelModel travelModel;
 
     @OneToMany
     @Column(name = "participants")
-    private List<PersonsId> personsIds;
+    private List<PersonsIdModel> personsIds;
 
     // nie wiem co z kwotą wymienioną w ostatnim punkcie
 

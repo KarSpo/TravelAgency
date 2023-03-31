@@ -1,14 +1,13 @@
 package com.example.travelagency.model;
 
 import lombok.*;
-
 import javax.persistence.*;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
+//@ToString
 @EqualsAndHashCode
 @Entity
 public class AirportModel {

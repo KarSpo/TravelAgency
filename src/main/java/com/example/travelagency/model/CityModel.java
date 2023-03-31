@@ -1,17 +1,20 @@
 package com.example.travelagency.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-@EqualsAndHashCode
+//@ToString
+//@EqualsAndHashCode
 @Entity
 public class CityModel {
 
@@ -27,10 +30,12 @@ public class CityModel {
     private CountryModel countryModel;
 
     @OneToMany(fetch = FetchType.LAZY,cascade =CascadeType.ALL,mappedBy = "cityModel")
-    private List<HotelModel> hotels = new ArrayList<>();
+    @JsonIgnore
+    private Set<HotelModel> hotels = new HashSet<>();
 
-    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL,mappedBy = "cityModel")
-    private List<AirportModel> airports = new ArrayList<>();
+    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL,mappedBy = "cityModel")
+    @JsonIgnore
+    private Set<AirportModel> airports = new HashSet<>();
 
 
 
